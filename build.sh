@@ -5,7 +5,7 @@
 set -e
 
 DIST_DIR="dist"
-VERSION="1.11.0"
+VERSION="1.11.1"
 
 echo "🔨 Building n8n-skills distribution packages..."
 
@@ -43,7 +43,7 @@ zip -rq "$DIST_DIR/n8n-mcp-skills-v${VERSION}.zip" \
     README.md \
     LICENSE \
     skills/ \
-    -x "*.DS_Store"
+    -x "*.DS_Store" -x "*-workspace/*" -x "*-workspace/"
 
 # Show results
 echo ""

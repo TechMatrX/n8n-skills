@@ -8,14 +8,14 @@ This folder contains distribution packages for different Claude platforms.
 
 Upload each skill separately via Settings > Capabilities > Skills (bottom of page):
 
-- `n8n-expression-syntax-v1.11.0.zip` - n8n expression syntax and common patterns
-- `n8n-mcp-tools-expert-v1.11.0.zip` - Expert guide for using n8n-mcp tools (recommended to install first)
-- `n8n-workflow-patterns-v1.11.0.zip` - 6 proven workflow architectural patterns
-- `n8n-validation-expert-v1.11.0.zip` - Validation error interpretation and fixing
-- `n8n-node-configuration-v1.11.0.zip` - Operation-aware node configuration
-- `n8n-code-javascript-v1.11.0.zip` - JavaScript in n8n Code nodes
-- `n8n-code-python-v1.11.0.zip` - Python in n8n Code nodes
-- `n8n-code-tool-v1.11.0.zip` - Code for the AI-agent Custom Code Tool
+- `n8n-expression-syntax-v1.11.1.zip` - n8n expression syntax and common patterns
+- `n8n-mcp-tools-expert-v1.11.1.zip` - Expert guide for using n8n-mcp tools (recommended to install first)
+- `n8n-workflow-patterns-v1.11.1.zip` - 6 proven workflow architectural patterns
+- `n8n-validation-expert-v1.11.1.zip` - Validation error interpretation and fixing
+- `n8n-node-configuration-v1.11.1.zip` - Operation-aware node configuration
+- `n8n-code-javascript-v1.11.1.zip` - JavaScript in n8n Code nodes
+- `n8n-code-python-v1.11.1.zip` - Python in n8n Code nodes
+- `n8n-code-tool-v1.11.1.zip` - Code for the AI-agent Custom Code Tool
 
 **Installation:**
 1. Go to Settings > Capabilities > Skills (bottom of page)
@@ -25,7 +25,7 @@ Upload each skill separately via Settings > Capabilities > Skills (bottom of pag
 
 ### Complete Bundle (Claude Code only)
 
-- **`n8n-mcp-skills-v1.11.0.zip`** - All 8 skills in one package
+- **`n8n-mcp-skills-v1.11.1.zip`** - All 8 skills in one package
 
 > **This bundle is NOT compatible with Claude.ai or Claude Desktop.** It uses a nested `skills/` directory structure required by Claude Code plugins. For Claude.ai/Desktop, use the individual skill zips above.
 
@@ -35,7 +35,7 @@ Upload each skill separately via Settings > Capabilities > Skills (bottom of pag
 /plugin install czlonkowski/n8n-skills
 
 # Or install from local file
-/plugin install /path/to/n8n-mcp-skills-v1.11.0.zip
+/plugin install /path/to/n8n-mcp-skills-v1.11.1.zip
 ```
 
 ## Which Package Should I Use?
@@ -52,15 +52,15 @@ Upload each skill separately via Settings > Capabilities > Skills (bottom of pag
 
 ```
 dist/
-├── n8n-code-javascript-v1.11.0.zip
-├── n8n-code-python-v1.11.0.zip
-├── n8n-code-tool-v1.11.0.zip
-├── n8n-expression-syntax-v1.11.0.zip
-├── n8n-mcp-skills-v1.11.0.zip             Claude Code only
-├── n8n-mcp-tools-expert-v1.11.0.zip
-├── n8n-node-configuration-v1.11.0.zip
-├── n8n-validation-expert-v1.11.0.zip
-├── n8n-workflow-patterns-v1.11.0.zip
+├── n8n-code-javascript-v1.11.1.zip
+├── n8n-code-python-v1.11.1.zip
+├── n8n-code-tool-v1.11.1.zip
+├── n8n-expression-syntax-v1.11.1.zip
+├── n8n-mcp-skills-v1.11.1.zip             Claude Code only
+├── n8n-mcp-tools-expert-v1.11.1.zip
+├── n8n-node-configuration-v1.11.1.zip
+├── n8n-validation-expert-v1.11.1.zip
+├── n8n-workflow-patterns-v1.11.1.zip
 └── README.md                              (this file)
 ```
 
