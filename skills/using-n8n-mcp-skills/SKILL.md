@@ -73,6 +73,8 @@ If you catch yourself thinking any of these, stop and invoke the named skill fir
 | "Validation passed, I'm ready to activate" | `n8n-validation-expert` + `n8n-workflow-patterns` — run the antipattern scan |
 | "Validation threw an error I don't understand" | `n8n-validation-expert` — some warnings are false positives, some errors are real |
 | "I'll reference `$json.x` here" | `n8n-expression-syntax` — prefer `$('Node').item.json.x` in branchy workflows |
+| "This webhook/scheduled flow is happy-path only" | `n8n-error-handling` — wire an error branch on every fallible node; 4xx caller faults, 5xx yours |
+| "I'll pass this file/image through as JSON" | `n8n-binary-and-data` — file contents live in `$binary`, and can't cross the agent-tool boundary |
 
 ## Skill index
 
@@ -87,6 +89,8 @@ If you catch yourself thinking any of these, stop and invoke the named skill fir
 | `n8n-code-javascript` | Any Code node in JavaScript; data access; `$helpers`; DateTime; SplitInBatches loop patterns |
 | `n8n-code-python` | A Code node specifically requested in Python; standard-library limits |
 | `n8n-code-tool` | The AI-agent-callable Custom Code Tool (`toolCode`) — returns a string, no `$fromAI`/`$input` |
+| `n8n-error-handling` | Webhook/API or unattended workflows; wiring error outputs; retries; 4xx/5xx response shapes; silent failures |
+| `n8n-binary-and-data` | Files, images, PDFs, attachments, uploads/downloads, vision; passing a file to/from an agent tool |
 
 ## n8n-mcp tools — working knowledge from turn one
 

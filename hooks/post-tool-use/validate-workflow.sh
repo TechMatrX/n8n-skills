@@ -10,7 +10,6 @@
 # "n8n-nodes-base.set") and route to the relevant skills. This is more robust
 # than grepping source code. Fires every call (no dedup).
 #
-# TODO(M3): repoint error-handling routes to n8n-error-handling once it ships.
 # TODO(M4): repoint sub-workflow / agent routes to n8n-subworkflows / n8n-agents.
 
 set -uo pipefail
@@ -92,7 +91,7 @@ SUGGESTIONS=""
 { [ $HAS_HTTP -eq 1 ] || [ $HAS_WEBHOOK -eq 1 ] || [ $HAS_RESPOND -eq 1 ]; } && SUGGESTIONS+="
 - n8n-mcp-tools-expert (auth surface present: use the credential system, never inline tokens)"
 { [ $HAS_WEBHOOK -eq 1 ] || [ $HAS_RESPOND -eq 1 ] || [ $HAS_SCHEDULE -eq 1 ] || [ $HAS_CHAT_TRIGGER -eq 1 ] || [ $HAS_AGENT -eq 1 ]; } && SUGGESTIONS+="
-- n8n-validation-expert + n8n-workflow-patterns (unattended / webhook / agent workflow: wire an error branch on every fallible node)"
+- n8n-error-handling (unattended / webhook / agent workflow: wire an error branch on every fallible node; 4xx/5xx response shapes)"
 [ "${NODE_COUNT}" -gt 6 ] && SUGGESTIONS+="
 - n8n-workflow-patterns (>6 nodes: architecture review, sticky notes, naming)"
 [ $HAS_AGENT -eq 1 ]     && SUGGESTIONS+="

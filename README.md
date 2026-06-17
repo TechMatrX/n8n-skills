@@ -14,7 +14,7 @@
 
 ## 🎯 What is this?
 
-This repository contains **8 complementary Claude Code skills** — plus an always-on router skill and a hooks enforcement layer — that teach AI assistants how to build production-ready n8n workflows using the [n8n-mcp](https://github.com/czlonkowski/n8n-mcp) MCP server.
+This repository contains **10 complementary Claude Code skills** — plus an always-on router skill and a hooks enforcement layer — that teach AI assistants how to build production-ready n8n workflows using the [n8n-mcp](https://github.com/czlonkowski/n8n-mcp) MCP server.
 
 ### Why These Skills Exist
 
@@ -33,7 +33,7 @@ These skills solve these problems by teaching Claude:
 
 ---
 
-## 📚 The 8 Skills
+## 📚 The 10 Skills
 
 ### 1. **n8n Expression Syntax**
 Teaches correct n8n expression syntax and common patterns.
@@ -134,6 +134,28 @@ Write code for the AI-agent-callable Custom Code Tool (`@n8n/n8n-nodes-langchain
 - Sandbox limits: no `$input`, `$helpers`, `$json`, `$getWorkflowStaticData`, no state across calls
 - Three signature error strings with causes and fixes
 - When to use Code Tool vs `toolWorkflow` vs HTTP Request Tool
+
+### 9. **n8n Error Handling**
+Make failures loud, structured, and recoverable.
+
+**Activates when**: Building webhook/API or unattended workflows, wiring error outputs, setting retries, designing 4xx/5xx responses, or chasing silent failures.
+
+**Key Features**:
+- Per-node error output: the two-step `onError: continueErrorOutput` + wire `main[1]` trap
+- `retryOnFail` self-healing for flaky network calls
+- 4xx/5xx response-shape mapping (and the `responseCode`-defaults-to-200 gotcha)
+- Error Trigger workflows for unattended runs
+
+### 10. **n8n Binary & Data**
+Handle files, images, and binary data correctly.
+
+**Activates when**: Working with files, images, PDFs, attachments, uploads/downloads, vision input, or passing a file to/from an AI agent tool.
+
+**Key Features**:
+- `$binary` vs `$json` — file contents never live in `$json`
+- Keeping binary alive across JSON transforms with Merge
+- The agent-tool binary boundary (pre-stage to storage, pass keys/URLs)
+- CDN/URL requirement for showing images in chat surfaces
 
 ---
 
@@ -307,7 +329,7 @@ The hooks enforcement layer adapts patterns from the official [n8n Skills](https
 
 ## 📊 What's Included
 
-- **8** complementary skills that work together
+- **10** complementary skills that work together
 - **525+** n8n nodes supported
 - **2,653+** workflow templates for examples
 - **10** production-tested Code node patterns
