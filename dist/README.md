@@ -8,14 +8,19 @@ This folder contains distribution packages for different Claude platforms.
 
 Upload each skill separately via Settings > Capabilities > Skills (bottom of page):
 
-- `n8n-expression-syntax-v1.12.0.zip` - n8n expression syntax and common patterns
-- `n8n-mcp-tools-expert-v1.12.0.zip` - Expert guide for using n8n-mcp tools (recommended to install first)
-- `n8n-workflow-patterns-v1.12.0.zip` - 6 proven workflow architectural patterns
-- `n8n-validation-expert-v1.12.0.zip` - Validation error interpretation and fixing
-- `n8n-node-configuration-v1.12.0.zip` - Operation-aware node configuration
-- `n8n-code-javascript-v1.12.0.zip` - JavaScript in n8n Code nodes
-- `n8n-code-python-v1.12.0.zip` - Python in n8n Code nodes
-- `n8n-code-tool-v1.12.0.zip` - Code for the AI-agent Custom Code Tool
+- `n8n-expression-syntax-v1.18.0.zip` - n8n expression syntax and common patterns
+- `n8n-mcp-tools-expert-v1.18.0.zip` - Expert guide for using n8n-mcp tools (recommended to install first)
+- `n8n-workflow-patterns-v1.18.0.zip` - Proven workflow architectural patterns
+- `n8n-validation-expert-v1.18.0.zip` - Validation error interpretation and fixing
+- `n8n-node-configuration-v1.18.0.zip` - Operation-aware node configuration
+- `n8n-code-javascript-v1.18.0.zip` - JavaScript in n8n Code nodes
+- `n8n-code-python-v1.18.0.zip` - Python in n8n Code nodes
+- `n8n-code-tool-v1.18.0.zip` - Code for the AI-agent Custom Code Tool
+- `n8n-error-handling-v1.18.0.zip` - Production error handling (per-node error outputs, retries, Error Trigger)
+- `n8n-binary-and-data-v1.18.0.zip` - Binary and file data handling
+- `n8n-subworkflows-v1.18.0.zip` - Reusable, composable sub-workflows
+- `n8n-agents-v1.18.0.zip` - AI agent design (Agent vs chain vs classifier, tools, memory)
+- `using-n8n-mcp-skills-v1.18.0.zip` - Always-on router skill (best in the Claude Code bundle, where the SessionStart hook loads it automatically)
 
 **Installation:**
 1. Go to Settings > Capabilities > Skills (bottom of page)
@@ -25,9 +30,9 @@ Upload each skill separately via Settings > Capabilities > Skills (bottom of pag
 
 ### Complete Bundle (Claude Code only)
 
-- **`n8n-mcp-skills-v1.12.0.zip`** - All 8 skills in one package
+- **`n8n-mcp-skills-v1.18.0.zip`** - All 12 skills + the always-on router and the hooks enforcement layer, in one package
 
-> **This bundle is NOT compatible with Claude.ai or Claude Desktop.** It uses a nested `skills/` directory structure required by Claude Code plugins. For Claude.ai/Desktop, use the individual skill zips above.
+> **This bundle is NOT compatible with Claude.ai or Claude Desktop.** It uses a nested `skills/` directory structure required by Claude Code plugins, and ships hooks that only run under the Claude Code / Codex plugin install. For Claude.ai/Desktop, use the individual skill zips above.
 
 **Installation:**
 ```bash
@@ -35,16 +40,16 @@ Upload each skill separately via Settings > Capabilities > Skills (bottom of pag
 /plugin install czlonkowski/n8n-skills
 
 # Or install from local file
-/plugin install /path/to/n8n-mcp-skills-v1.12.0.zip
+/plugin install /path/to/n8n-mcp-skills-v1.18.0.zip
 ```
 
 ## Which Package Should I Use?
 
 | Platform | Package | What You Get |
 |----------|---------|--------------|
-| **Claude.ai / Desktop** | Individual zips | 8 skills (upload separately) |
-| **Claude Code** | Complete bundle OR individual zips | All 8 skills |
-| **Claude API** | Complete bundle | All 8 skills (extract skills/ folder) |
+| **Claude.ai / Desktop** | Individual zips | Upload each skill separately (the router/hooks layer won't run) |
+| **Claude Code** | Complete bundle OR individual zips | All 12 skills + router + hooks enforcement layer |
+| **Claude API** | Complete bundle | All 12 skills (extract the `skills/` folder) |
 
 ---
 
@@ -52,15 +57,20 @@ Upload each skill separately via Settings > Capabilities > Skills (bottom of pag
 
 ```
 dist/
-├── n8n-code-javascript-v1.12.0.zip
-├── n8n-code-python-v1.12.0.zip
-├── n8n-code-tool-v1.12.0.zip
-├── n8n-expression-syntax-v1.12.0.zip
-├── n8n-mcp-skills-v1.12.0.zip             Claude Code only
-├── n8n-mcp-tools-expert-v1.12.0.zip
-├── n8n-node-configuration-v1.12.0.zip
-├── n8n-validation-expert-v1.12.0.zip
-├── n8n-workflow-patterns-v1.12.0.zip
+├── n8n-agents-v1.18.0.zip
+├── n8n-binary-and-data-v1.18.0.zip
+├── n8n-code-javascript-v1.18.0.zip
+├── n8n-code-python-v1.18.0.zip
+├── n8n-code-tool-v1.18.0.zip
+├── n8n-error-handling-v1.18.0.zip
+├── n8n-expression-syntax-v1.18.0.zip
+├── n8n-mcp-skills-v1.18.0.zip             Claude Code only (bundle)
+├── n8n-mcp-tools-expert-v1.18.0.zip
+├── n8n-node-configuration-v1.18.0.zip
+├── n8n-subworkflows-v1.18.0.zip
+├── n8n-validation-expert-v1.18.0.zip
+├── n8n-workflow-patterns-v1.18.0.zip
+├── using-n8n-mcp-skills-v1.18.0.zip
 └── README.md                              (this file)
 ```
 
@@ -84,9 +94,12 @@ Each zip contains a skill folder at the root with:
 .claude-plugin/
   ├── plugin.json      # Claude Code plugin metadata
   └── marketplace.json # Marketplace listing metadata
+hooks/                 # SessionStart / PreToolUse / PostToolUse enforcement layer
 README.md              # Project overview and documentation
 LICENSE                # MIT License
-skills/                # All 8 skills in subfolders
+NOTICES                # Attribution for adapted material
+NOTICES-APACHE-2.0.txt # Apache-2.0 attribution
+skills/                # All 12 skills + the router, in subfolders
   ├── n8n-expression-syntax/
   ├── n8n-mcp-tools-expert/
   ├── n8n-workflow-patterns/
@@ -94,7 +107,12 @@ skills/                # All 8 skills in subfolders
   ├── n8n-node-configuration/
   ├── n8n-code-javascript/
   ├── n8n-code-python/
-  └── n8n-code-tool/
+  ├── n8n-code-tool/
+  ├── n8n-error-handling/
+  ├── n8n-binary-and-data/
+  ├── n8n-subworkflows/
+  ├── n8n-agents/
+  └── using-n8n-mcp-skills/
 ```
 
 ## Verification
